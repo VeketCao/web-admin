@@ -26,10 +26,9 @@
     "knex": "^0.12.6",
     "lodash": "^4.16.4",
     "moment": "^2.15.1",
-    "multer": "^1.2.0",
+    "multer": "^0.1.8",
     "mysql": "^2.11.1",
     "qs": "^6.3.0",
-    "serve-favicon": "^2.3.0",
-    "underscore.string": "^3.3.4"
+    "serve-favicon": "^2.3.0"
   }
 }

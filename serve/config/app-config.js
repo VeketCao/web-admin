@@ -19,7 +19,7 @@ module.exports={
             'view cache':true,
             'view engine':'html'
         },
-        USE_MY_SQL:false
+        USE_MY_SQL:true
     },
     KNEX:{
         client:'mysql',
@@ -29,7 +29,7 @@ module.exports={
             port:'3306',
             user:'root',
             password:'111111',
-            database:'test'
+            database:'mysql'
         },
         pool:{
             min:2,

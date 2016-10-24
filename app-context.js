@@ -13,3 +13,5 @@ s.require=function (p) {
 };
 
 s.Logger=require('./serve/common/logger.js')(s.APP_CONFIG.LOGGERS);
+s.BaseModel=require('./serve/common/base-model.js');
+s.BaseService=require('./serve/common/base-service.js');
