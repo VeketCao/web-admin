@@ -54,9 +54,9 @@ var addServices=function(files){
 };
 
 var initMiddleware=Promise.method(function () {
-    logger.info('loading middleware...');
+    logger.info('register middleware...');
     app.use(express.static('public'));
-    //body-parser
+
     var bodyParser=require('body-parser');
     var BP=AppConfig.BODY_PARSER;
     app.use(bodyParser.json(BP.json));
