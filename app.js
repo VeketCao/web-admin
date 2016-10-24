@@ -76,7 +76,25 @@ var startServer=Promise.method(function(){
     });
 });
 
+var stopServer=function(){
+    if(server){
+        logger.info('server stop...');
+        server.close(exitProcess);
+    }
+
+    setTimeout(exitProcess,AppConfig.SERVER.STOP_TIMEOUT);
+    function exitProcess(){
+        logger.info('server process exit，process id:"%d"',process.pid);
+        process.exit(1);
+    }
+};
+
+var errorHandler= function (e) {
+    logger.error(e,'server error...');
+    stopServer();
+};
+
 Promise.resolve(initCtx()).
     then(initMiddleware).
     then(startServer).
-    catch();
+    catch(errorHandler);
