@@ -19,7 +19,7 @@ module.exports={
             'view cache':true,
             'view engine':'html'
         },
-        USE_MY_SQL:true
+        USE_MY_SQL:false
     },
     KNEX:{
         client:'mysql',
