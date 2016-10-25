@@ -25,6 +25,9 @@ define(['app','text!./main.html','css!./main.css','domReady!'],function(app,page
 
     var initPage=function(){
         bindEvent();
+        /*app.http('/v1/test/',{limit:-1},{'type':'GET'}).done(function (rtn) {
+            console.log(rtn);
+        });*/
     };
 
     return{

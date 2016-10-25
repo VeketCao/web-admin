@@ -8,7 +8,7 @@ var logger=AppCtx.Logger('test.js');
 router.get('/',function(req,res){
     logger.info("get...");
     res.setHeader("Access-Control-Allow-Origin","*");
-    res.json({data:"hello world"});
+    res.json({'data':'hello world'});
 });
 
 router.get('/:id',function(req,res){
