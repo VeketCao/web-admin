@@ -5,7 +5,7 @@ var path=require('path');
 
 module.exports={
     SERVER:{
-        LISTEN_PORT:5000,
+        LISTEN_PORT:80,
         STOP_TIMEOUT:5*1000,
         SERVICE:{
             url:'/v1',
@@ -19,16 +19,16 @@ module.exports={
             'view cache':true,
             'view engine':'html'
         },
-        USE_MY_SQL:false
+        USE_MY_SQL:true
     },
     KNEX:{
         client:'mysql',
         debug:false,
         connection:{
-            host:'127.0.0.1',
+            host:'104.160.38.181',
             port:'3306',
             user:'root',
-            password:'111111',
+            password:'root',
             database:'mysql'
         },
         pool:{
@@ -53,7 +53,7 @@ module.exports={
         DEFAULT:{
             LEVEL:'DEBUG',
             WRITE_TO_CONSOLE:true,
-            WRITE_TO_FILE:false,
+            WRITE_TO_FILE:true,
             LOG_FILE:path.join(AppCtx.APP_ROOT_DIR,'/log/server'),
             LOG_FILE_DATE_PATTERN:'YYYYMM',
             MAX_FILE_SIZE:1024,

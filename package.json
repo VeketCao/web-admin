@@ -30,9 +30,5 @@
     "mysql": "^2.11.1",
     "qs": "^6.3.0",
     "serve-favicon": "^2.3.0"
-  },
-  "devDependencies": {
-    "cheerio": "^0.22.0",
-    "request": "^2.79.0"
   }
 }

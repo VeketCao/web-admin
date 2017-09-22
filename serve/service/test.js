@@ -18,6 +18,8 @@ router.get('/:id',function(req,res){
 
 router.post('/',function(req,res,next){
     logger.info("post...");
+    res.setHeader("Access-Control-Allow-Origin","*");
+    console.log(req.body);
     res.json({data:req.body});
 });
 
