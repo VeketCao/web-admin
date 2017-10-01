@@ -15,3 +15,4 @@ s.require=function (p) {
 s.Logger=require('./lib/common/logger.js')(s.APP_CONFIG.LOGGERS);
 s.BaseModel=require('./lib/common/base-model.js');
 s.BaseService=require('./lib/common/base-service.js');
+s.Utils=require('./lib/common/utils.js');
