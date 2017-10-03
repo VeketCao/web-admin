@@ -53,17 +53,34 @@ var addServices=function(files){
     });
 };
 
+var addFilters=function(type){
+    var dir=AppConfig.SERVER.FILTER.dir;
+    var configs=AppConfig.SERVER.FILTER[type];
+
+    _.each(configs,function(config){
+        if(config.disabled)return;
+        var filter=require(path.join(dir,config.file));
+        var fn=config.fn&& _.isFunction(filter[config.fn])?filter[config.fn]:filter;
+        var url=config.url?config.url:'/';
+
+        app.use(url,fn);
+        logger.debug('注册自定义中间件(%s): %j"',type,config);
+    })
+}
+
 var initMiddleware=Promise.method(function () {
     logger.info('register middleware...');
-    app.use(express.static('public'));
 
+    addFilters('head');
+    app.use(express.static('public'));
     var bodyParser=require('body-parser');
     var BP=AppConfig.BODY_PARSER;
     app.use(bodyParser.json(BP.json));
     app.use(bodyParser.urlencoded(BP.urlencoded));
     app.use(require('multer')(BP.multer));
-
+    addFilters('middle');
     addServices(findFiles(AppConfig.SERVER.SERVICE.dir));
+    addFilters('end');
 });
 
 var server;
