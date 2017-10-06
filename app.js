@@ -78,6 +78,10 @@ var initMiddleware=Promise.method(function () {
     app.use(bodyParser.json(BP.json));
     app.use(bodyParser.urlencoded(BP.urlencoded));
     app.use(require('multer')(BP.multer));
+    app.use(function (req,res,next) {//设置跨域
+        res.setHeader("Access-Control-Allow-Origin","*");
+        next();
+    });
     addFilters('middle');
     addServices(findFiles(AppConfig.SERVER.SERVICE.dir));
     addFilters('end');
